@@ -24,17 +24,26 @@ resource "aws_route_table" "RT" {
   }
 }
 
-resource "aws_subnet" "subnet_test" {
+resource "aws_subnet" "subnet_pub" {
   vpc_id            = aws_vpc.vpc_test.id
-  cidr_block        = var.subnet_cidr
-  availability_zone = var.subnet_AZ
+  cidr_block        = var.Pub_subnet_cidr
+  availability_zone = var.Pub_subnet_AZ
   tags = {
-    Name = "${var.subnet_tag}"
+    Name = "${var.Pub_subnet_tag}"
+  }
+}
+resource "aws_subnet" "subnet_Pri" {
+  vpc_id            = aws_vpc.vpc_test.id
+  cidr_block        = var.Pri_subnet_cidr
+  availability_zone = var.Pri_subnet_AZ
+  tags = {
+    Name = "${var.Pri_subnet_tag}"
   }
 }
 
-resource "aws_route_table_association" "example_association" {
-  subnet_id      = aws_subnet.subnet_test.id
+
+resource "aws_route_table_association" "Public_RT_association" {
+  subnet_id      =aws_subnet.subnet_pub.id
   route_table_id = aws_route_table.RT.id
 }
 

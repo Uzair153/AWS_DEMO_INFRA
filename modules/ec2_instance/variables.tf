@@ -26,4 +26,6 @@ variable "key" {
 variable "key_name" {
   type = string
 }
-
+variable "SG_name" {
+  type = string
+}

@@ -1,7 +1,7 @@
 
 //creating security group
 resource "aws_security_group" "SG" {
-  name        = "SG_1"
+  name        = var.SG_name
   description = "Allow TLS inbound traffic"
 
   dynamic "ingress" {
