@@ -19,9 +19,7 @@ variable "ports" {
 variable "SG_tag" {
   type = string
 }
-variable "key" {
-  type = string
-}
+
 variable "key_name" {
   type = string
 }
@@ -62,5 +60,7 @@ variable "Pub_subnet_AZ" {
   type = string
 }
 variable "Pub_subnet_tag" {
-  type = string 
+  type = string
 }
+
+

@@ -3,7 +3,7 @@
 resource "aws_security_group" "SG" {
   name        = var.SG_name
   description = "Allow TLS inbound traffic"
-
+   vpc_id      = var.vpc_id
   dynamic "ingress" {
     for_each = var.ports
     iterator = port
